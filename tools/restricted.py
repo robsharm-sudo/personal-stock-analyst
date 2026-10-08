@@ -1,4 +1,4 @@
-"""Restricted-list guard: companies the investor supervises at work and must not research or trade.
+"""Restricted-list guard: companies the investor must not research or trade.
 
   python3 tools/restricted.py check CBA XYZ   exit 1 and name any restricted ticker
   python3 tools/restricted.py filter A B C    print only the unrestricted tickers
@@ -40,7 +40,7 @@ def main(argv):
         hits = named_in(json.load(sys.stdin).get("prompt", ""), codes)
         if hits:
             print(f"Blocked: {', '.join(hits)} is on your restricted list (restricted.txt). "
-                  "This kit does not research companies you supervise.", file=sys.stderr)
+                  "This kit does not research companies on your restricted list.", file=sys.stderr)
             return 2
         return 0
     codes = load()

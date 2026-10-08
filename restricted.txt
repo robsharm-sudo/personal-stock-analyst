@@ -1,7 +1,6 @@
-# Companies you must not research or trade: entities you supervise at work.
-# One ASX code per line; text after # is ignored. Your employer's own restricted
-# list governs: add anything on it that is missing here (insurers, super funds,
-# other listed parents) and keep this file in step with it.
+# Companies you must not research or trade: your restricted list.
+# One ASX code per line; text after # is ignored. Add anything missing and keep
+# this file in step with any restricted list that applies to you.
 #
 # Starting list, 8 October 2026: ASX-listed banks and bank parents.
 CBA   # Commonwealth Bank of Australia
@@ -19,7 +18,7 @@ CCL   # Cuscal
 TYR   # Tyro Payments
 HGH   # Heartland Group Holdings
 
-# Added 8 October 2026 at your direction: listed insurers and parents of regulated insurers.
+# Added 8 October 2026 at your direction: listed insurers and insurer parents.
 QBE   # QBE Insurance Group
 IAG   # Insurance Australia Group
 SUN   # Suncorp Group
