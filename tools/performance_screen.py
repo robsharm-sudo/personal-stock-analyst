@@ -1,8 +1,12 @@
 """Performance screen: risers, fallers, steady performers and dividend payers in an ASX index.
 
-  python3 tools/performance_screen.py --universe <constituents.csv> --asof 2026-09-30 [--top 100] --out reports/
+  python3 tools/performance_screen.py --universe <constituents.csv> --asof 2026-09-30 [--top 100]
+                                     [--verified <checked.csv>] --out reports/
 
-constituents.csv needs columns: code, company, sector, market_cap (A$). Restricted tickers are dropped first.
+constituents.csv needs columns: code, company, sector, market_cap (any size measure; used only to pick the largest N).
+Restricted companies are included so the movers are complete, and marked (R): never a candidate, never to trade.
+checked.csv (optional) holds figures the fact-checker verified against ASX announcements, which replace Yahoo's:
+code, div12_aud, ordinary_aud, franking, note, source.
 Prices and dividends: Yahoo Finance chart API, monthly bars, adjusted close (dividends reinvested, pre-tax,
 franking credits excluded). Benchmarks: the S&P/ASX 200 index itself (^AXJO, price only, so it excludes
 dividends) and STW.AX (SPDR S&P/ASX 200 ETF, distributions reinvested) as the like-for-like total-return comparison.
@@ -103,7 +107,8 @@ def table(rows, cols):
 
 
 COLS = [
-    ("Code", lambda r: r["code"]), ("Company", lambda r: r["company"]), ("Sector", lambda r: r["sector"]),
+    ("Code", lambda r: r["code"] + (" (R)" if r.get("restricted") else "")),
+    ("Company", lambda r: r["company"]), ("Sector", lambda r: r["sector"]),
     ("5-yr a.a. return", lambda r: pct(r["cagr5"])), ("3-yr return", lambda r: pct(r["r3"])),
     ("1-yr return", lambda r: pct(r["r1"])), ("Volatility", lambda r: pct(r["vol"])),
     ("Max fall", lambda r: pct(r["max_drawdown"])), ("Up years of 5", lambda r: str(r["years_up"])),
@@ -137,9 +142,30 @@ def rank(rows, bench, label, index=None):
            table(payers, COLS[:3] + [("Dividends, 12 months (A$)", lambda r: f"{r['div12']:.3f}"),
                                      ("Price (A$)", lambda r: f"{r['price']:.2f}"),
                                      ("Yield", lambda r: pct(r["yield"])),
-                                     ("Fell >20% on prior year", lambda r: "yes" if r["div_cut"] else "no")]),
+                                     ("Ordinary only", lambda r: pct(r.get("yield_ordinary"))),
+                                     ("Franking", lambda r: r.get("franking") or "n/a"),
+                                     ("Fell >20% on prior year", lambda r: "yes" if r["div_cut"] else "no"),
+                                     ("Checked against ASX", lambda r: "yes" if r.get("checked") else "no")]),
            "\n"]
     return "".join(out), {"risers": risers, "fallers": fallers, "steady": steady, "payers": payers}
+
+
+def apply_verified(rows, path):
+    """Replace Yahoo dividends with figures checked against ASX announcements, and carry the checker's notes."""
+    checked = {v["code"]: v for v in csv.DictReader(open(path))} if path else {}
+    for r in rows:
+        v = checked.get(r["code"])
+        if not v:
+            continue
+        if v.get("div12_aud"):
+            r["div12"] = float(v["div12_aud"])
+            r["yield"] = r["div12"] / r["price"]
+            r["yield_ordinary"] = float(v["ordinary_aud"]) / r["price"] if v.get("ordinary_aud") else r["yield"]
+            r["franking"] = v.get("franking", "")
+            r["checked"] = True
+        if v.get("note"):
+            r["note"] = f"{v['note']} ({v['source']})" if v.get("source") else v["note"]
+    return checked
 
 
 def main(argv=None):
@@ -147,37 +173,40 @@ def main(argv=None):
     p.add_argument("--universe", required=True)
     p.add_argument("--asof", required=True, help="last complete month end, YYYY-MM-DD")
     p.add_argument("--top", type=int, action="append", default=[], help="also rank the largest N by market value")
+    p.add_argument("--verified", help="CSV of figures checked against ASX announcements")
     p.add_argument("--out", default="reports")
     a = p.parse_args(argv)
 
     codes = restricted.load()
     universe = list(csv.DictReader(open(a.universe)))
-    kept = [u for u in universe if restricted.norm(u["code"]) not in codes]
-    dropped = len(universe) - len(kept)
+    n_restricted = sum(restricted.norm(u["code"]) in codes for u in universe)
 
     bench_raw = fetch(BENCHMARK)
     bench = metrics(month_ends(bench_raw, a.asof), bench_raw, a.asof)
     index_raw = fetch(INDEX)
     index = metrics(month_ends(index_raw, a.asof), index_raw, a.asof)
     rows, failed = [], []
-    for u in kept:
+    for u in universe:
         try:
             raw = fetch(u["code"])
             bars = month_ends(raw, a.asof)
             if len(bars) < 13 or bars[-1][0] != a.asof[:7]:
                 failed.append(f"{u['code']} (no price for {a.asof[:7]} or under a year of history)")
                 continue
-            rows.append({**u, **metrics(bars, raw, a.asof), "market_cap": float(u["market_cap"] or 0)})
+            rows.append({**u, **metrics(bars, raw, a.asof), "market_cap": float(u["market_cap"] or 0),
+                         "restricted": restricted.norm(u["code"]) in codes})
         except Exception as e:
             failed.append(f"{u['code']} ({e})")
         time.sleep(0.3)
 
+    apply_verified(rows, a.verified)
     out = Path(a.out)
     out.mkdir(exist_ok=True)
     stem = f"performance_screen_{a.asof}"
     report = [f"# Performance screen, as at {a.asof}\n",
               f"Prepared {date.today().isoformat()}. Universe: {a.universe} ({len(universe)} companies). "
-              f"{dropped} restricted companies were dropped before ranking. "
+              f"{n_restricted} companies on your restricted list are included so the movers are complete, marked (R): "
+              "do not trade them, and never carry them into a candidate shortlist or another skill. "
               f"{len(failed)} could not be priced: {', '.join(failed) or 'none'}.\n",
               "**How to read this.** Returns are total returns from month-end adjusted closes (dividends reinvested, "
               "pre-tax, franking credits excluded). \"Up years\" counts the five 12-month periods ending on the as-at "
@@ -186,23 +215,30 @@ def main(argv=None):
               "what happened; they do not predict what comes next.\n",
               "**Limits.** Prices and dividends come from Yahoo Finance's unofficial API, a secondary source: every "
               "figure is `[VERIFY]` until checked against ASX announcements. Dividend amounts may be in the declaring "
-              "currency (USD or NZD for some companies) and may include special dividends. The universe is today's "
+              "currency (USD or NZD for some companies), net of withholding tax, and may include special dividends; "
+              "rows marked as checked against ASX use the announced amounts in A$. The universe is today's "
               "constituents, so companies that left the index are missing and past returns look better than an "
               "index investor received (survivorship bias).\n"]
     text, picks = rank(rows, bench, "S&P/ASX 200 constituents", index)
     report.append(text)
+    shown = {r["code"] for lst in picks.values() for r in lst}
     for n in a.top:
         big = sorted(rows, key=lambda r: -r["market_cap"])[:n]
-        text, _ = rank(big, bench, f"Largest {n} by market value", index)
+        text, more = rank(big, bench, f"Largest {n} by market value", index)
         report.append(text)
+        shown |= {r["code"] for lst in more.values() for r in lst}
+    notes = [f"- **{r['code']}**: {r['note']}" for r in rows if r.get("note") and r["code"] in shown]
+    if notes:
+        report.append("## Notes from the fact-check\n\n" + "\n".join(sorted(notes)) + "\n")
     (out / f"{stem}.md").write_text("\n".join(report))
     fields = ["code", "company", "sector", "market_cap", "months", "r1", "r3", "r5", "cagr5", "vol",
-              "max_drawdown", "years_up", "price", "div12", "yield", "div_cut"]
+              "max_drawdown", "years_up", "price", "div12", "yield", "yield_ordinary", "franking", "div_cut",
+              "checked", "restricted"]
     with open(out / f"{stem}.csv", "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
         w.writeheader()
         w.writerows(rows)
-    print(f"wrote {out / stem}.md and .csv: {len(rows)} priced, {dropped} restricted dropped, {len(failed)} failed")
+    print(f"wrote {out / stem}.md and .csv: {len(rows)} priced, {n_restricted} restricted marked, {len(failed)} failed")
 
 
 if __name__ == "__main__":

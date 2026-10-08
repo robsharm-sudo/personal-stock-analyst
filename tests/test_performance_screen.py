@@ -51,6 +51,21 @@ class PerformanceScreenTest(unittest.TestCase):
         self.assertEqual(len(picks["risers"]), 2)
         self.assertIn("AAA", text)
 
+    def test_checked_dividends_replace_yahoo(self):
+        import csv, tempfile
+        rows = [{"code": "AAA", "price": 10.0, "div12": 0.85, "yield": 0.085}]
+        with tempfile.NamedTemporaryFile("w", suffix=".csv", delete=False, newline="") as f:
+            w = csv.DictWriter(f, fieldnames=["code", "div12_aud", "ordinary_aud", "franking", "note", "source"])
+            w.writeheader()
+            w.writerow({"code": "AAA", "div12_aud": "1.00", "ordinary_aud": "0.40", "franking": "100%",
+                        "note": "Includes a special.", "source": "3A.1 0001"})
+        ps.apply_verified(rows, f.name)
+        r = rows[0]
+        self.assertAlmostEqual(r["yield"], 0.10)
+        self.assertAlmostEqual(r["yield_ordinary"], 0.04)
+        self.assertTrue(r["checked"])
+        self.assertEqual(r["note"], "Includes a special. (3A.1 0001)")
+
 
 if __name__ == "__main__":
     unittest.main()

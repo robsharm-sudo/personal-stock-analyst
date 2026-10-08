@@ -18,3 +18,14 @@ BBC   # BNK Banking Corporation
 CCL   # Cuscal
 TYR   # Tyro Payments
 HGH   # Heartland Group Holdings
+
+# Added 8 October 2026 at your direction: listed insurers and parents of regulated insurers.
+QBE   # QBE Insurance Group
+IAG   # Insurance Australia Group
+SUN   # Suncorp Group
+MPL   # Medibank Private
+NHF   # nib holdings
+CGF   # Challenger (parent of Challenger Life)
+GDG   # Generation Development Group (parent of Generation Life)
+HLI   # Helia Group (lenders mortgage insurer)
+CVW   # ClearView Wealth (parent of ClearView Life)

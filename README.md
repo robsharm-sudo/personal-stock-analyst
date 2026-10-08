@@ -20,7 +20,7 @@ A weekly routine emails you on Sunday evenings. It covers results and dividend d
 
 ## Safeguards
 
-- **Restricted list.** `restricted.txt` holds the companies you supervise at work. A hook blocks any prompt that names one in capitals, every skill checks its ticker before starting, and screens drop restricted names before ranking. If the file goes missing, prompts are blocked until it is restored.
+- **Restricted list.** `restricted.txt` holds the companies you supervise at work. The performance lists show them, marked (R), so you see every big mover in the index; nothing else touches them. A hook blocks any prompt that names one in capitals, every skill checks its ticker before starting, and no restricted company reaches a candidate shortlist. If the file goes missing, prompts are blocked until it is restored.
 - **Fact-check.** Before a report is final, a separate agent checks every figure taken from an ASX announcement or filing against the document itself.
 - **Tags.** Each figure is marked `[E]` (as printed), `[D]` (calculated, with the working shown), `[I]` (inferred) or `[VERIFY]` (not checked against a primary source).
 - **No broker access and no payments.** The kit reads public sources only.
