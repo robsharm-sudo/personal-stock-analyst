@@ -20,7 +20,7 @@ A weekly routine emails you on Sunday evenings. It covers results and dividend d
 
 ## Safeguards
 
-- **Restricted list.** `restricted.txt` holds the companies you supervise at work. The performance lists show them, marked (R), so you see every big mover in the index; nothing else touches them. A hook blocks any prompt that names one in capitals, every skill checks its ticker before starting, and no restricted company reaches a candidate shortlist. If the file goes missing, prompts are blocked until it is restored.
+- **Restricted list.** `restricted.txt` holds the companies you must not trade. The performance lists show them, marked (R), so you see every big mover in the index; nothing else touches them. A hook blocks any prompt that names one in capitals, every skill checks its ticker before starting, and no restricted company reaches a candidate shortlist. If the file goes missing, prompts are blocked until it is restored.
 - **Fact-check.** Before a report is final, a separate agent checks every figure taken from an ASX announcement or filing against the document itself.
 - **Tags.** Each figure is marked `[E]` (as printed), `[D]` (calculated, with the working shown), `[I]` (inferred) or `[VERIFY]` (not checked against a primary source).
 - **No broker access and no payments.** The kit reads public sources only.
@@ -29,7 +29,7 @@ A weekly routine emails you on Sunday evenings. It covers results and dividend d
 ## Set up
 
 1. Fill in `portfolio.md`.
-2. Check `restricted.txt` against your employer's restricted list and add anything missing.
+2. Check `restricted.txt` against any restricted list that applies to you, and add anything missing.
 3. Connect market data (see below). The performance lists and price levels work without a key. Screening on fundamentals and the DCF need the FMP key. The other skills work from ASX announcements and company reports.
 4. Create the weekly routine from `routines/weekly-watch.md`.
 5. Check the guard works: `python3 -m unittest discover -s tests`.
