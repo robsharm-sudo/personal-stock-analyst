@@ -1,0 +1,201 @@
+code,company,sector,market_cap
+BHP,Bhp Group Ltd,Materials,1139285591.80
+CBA,Commonwealth Bank Of Australia,Financials,903430177.76
+NAB,National Australia Bank,Financials,429771609.60
+WBC,Westpac Banking Corporation,Financials,420451449.60
+ANZ,Anz Group Holdings Ltd,Financials,410912277.60
+CSL,Csl,Health Care,312910694.16
+WES,Wesfarmers,Consumer Discretionary,310989796.60
+MQG,Macquarie Group Ltd Def,Financials,304943261.08
+RIO,Rio Tinto,Materials,222582226.44
+WDS,Woodside Energy Group Ltd,Energy,214997296.50
+TLS,Telstra Group,Communication,191959704.00
+GMG,Goodman Group Units,Real Estate,191825399.22
+WOW,Woolworths Group Ltd,Consumer Staples,167624205.84
+TCL,Transurban Group Stapled Units,Industrials,146059588.80
+QBE,Qbe Insurance Group,Financials,128944381.72
+ALL,Aristocrat Leisure,Consumer Discretionary,127838007.00
+NST,Northern Star Resources Ltd,Materials,125996701.72
+COL,Coles Group Ltd,Consumer Staples,110330380.16
+STO,Santos,Energy,99577407.72
+EVN,Evolution Mining,Materials,95889800.00
+FMG,Fortescue Ltd,Materials,95566811.95
+BXB,Brambles,Industrials,91784262.24
+S32,South32,Materials,80536700.00
+CPU,Computershare Ltd,Industrials,77940485.04
+SUN,Suncorp Group,Financials,71396526.60
+ORG,Origin Energy,Utilities,68096827.98
+IAG,Insurance Australia Group,Financials,66474002.22
+RMD,Resmed Cdi,Health Care,65376402.30
+SCG,Scentre Group,Real Estate,64317658.72
+SOL,Washington H Soul Pattinson & Comp,Financials,58363961.06
+SIG,Sigma Healthcare,Health Care,54706341.36
+APA,Apa Group Units,Utilities,50281756.82
+BSL,Bluescope Steel,Materials,48488714.91
+QAN,Qantas Airways,Industrials,48187711.94
+MPL,Medibank Private,Financials,44987592.65
+PLS,Pls Group Ltd,Materials,44921045.32
+NEM,Newmont Corporation Cdi,Materials,44102411.64
+LYC,Lynas Rare Earths,Materials,43550242.60
+JHX,James Hardie Industries Cdi Plc,Materials,41283044.04
+ASX,Asx Ltd,Financials,40935909.30
+ORI,Orica,Materials,38759287.87
+ALQ,Als,Industrials,38429691.84
+TLC,The Lottery Corporation Ltd,Consumer Discretionary,38196611.94
+SFR,Sandfire Resources,Materials,37602481.91
+SGP,Stockland Stapled Units Ltd,Real Estate,37102725.25
+RHC,Ramsay Health Care,Health Care,37069616.15
+ALD,Ampol,Energy,37028160.72
+XRO,Xero,Information Technology,34370282.10
+SHL,Sonic Healthcare,Health Care,33412064.98
+MIN,Mineral Resources,Materials,32950534.30
+VCX,Vicinity Centres,Real Estate,32848870.72
+PME,Pro Medicus,Health Care,31692243.08
+TNE,Technology One,Information Technology,31555944.00
+CHC,Charter Hall Group Stapled Units,Real Estate,31534664.07
+GPT,Gpt Group Stapled Units,Real Estate,31085359.84
+COH,Cochlear,Health Care,30602533.50
+LNW,Light & Wonder Inc. Cdi,Consumer Discretionary,30522361.14
+CAR,Car Group,Communication,30169213.82
+GMD,Genesis Minerals,Materials,30040358.42
+CDA,Codan,Information Technology,29915558.75
+PRU,Perseus Mining Ltd,Materials,29874380.58
+AMC,Amcor Cdi Plc,Materials,28538015.56
+NXT,Nextdc,Information Technology,27928268.28
+JBH,Jb Hi-Fi Ltd,Consumer Discretionary,27555931.12
+REA,Rea Group Ltd,Communication,27497007.00
+SGH,Sgh,Industrials,26941680.24
+MGR,Mirvac Group Stapled Units,Real Estate,25501682.58
+RMS,Ramelius Resources,Materials,25363165.30
+WTC,Wisetech Global,Information Technology,25184456.63
+FPH,Fisher And Paykel Healthcare Corpo,Health Care,24867409.72
+DNL,Dyno Nobel,Materials,23126523.48
+SDF,Steadfast Group Ltd,Financials,22979573.15
+ANN,Ansell,Health Care,22920943.50
+CMM,Capricorn Metals Ltd Def,Materials,22753528.92
+WHC,Whitehaven Coal,Energy,22718694.60
+AZJ,Aurizon Holdings,Industrials,22300168.14
+AMP,Amp Ltd,Financials,22245162.52
+VAU,Vault Minerals,Materials,22049373.15
+CWY,Cleanaway Waste Management,Industrials,22045355.00
+DXS,Dexus Stapled Units,Real Estate,21680071.56
+BEN,Bendigo And Adelaide Bank,Financials,21284519.48
+GGP,Greatland Resources Ltd,Materials,19933726.96
+RRL,Regis Resources,Materials,19237804.29
+CGF,Challenger,Financials,19050892.32
+HUB,Hub24,Financials,18566004.13
+AGL,Agl Energy Ltd,Utilities,18264623.00
+VNT,Ventia Services Group Ltd,Industrials,17998514.17
+WGX,Westgold Resources,Materials,17979147.40
+MP1,Megaport,Information Technology,17767235.36
+A2M,The A2 Milk Company,Consumer Staples,16719342.78
+TLX,Telix Pharmaceuticals,Health Care,16649423.31
+EDV,Endeavour Group Ltd,Consumer Staples,16362199.26
+DOW,Downer Edi,Industrials,16229764.00
+IGO,Igo,Materials,16108837.50
+WOR,Worley,Industrials,15771890.52
+SEK,Seek,Communication,15707254.54
+REH,Reece,Industrials,15165617.50
+BOQ,Bank Of Queensland,Financials,15113258.16
+PDN,Paladin Energy Ltd,Energy,14993618.10
+TWE,Treasury Wine Estates Ltd,Consumer Staples,14739361.85
+XYZ,Block Cdi,Financials,14611611.80
+WAF,West African Resources Ltd,Materials,14343530.76
+EMR,Emerald Resources,Materials,13654122.21
+PDI,Pdi Gold Limited Ltd,Materials,13458187.80
+SGM,Sims,Materials,13312819.68
+VEA,Viva Energy Group,Energy,13094480.68
+NWH,Nrw Holdings,Industrials,13081771.32
+RWC,Reliance Worldwide Corporation,Industrials,12820737.75
+AUB,Aub Group Ltd,Financials,12573865.08
+360,Life360 Inc. Cdi,Information Technology,11932345.26
+APE,Eagers Automotive,Consumer Discretionary,11780330.70
+MTS,Metcash,Consumer Staples,11767953.19
+MND,Monadelphous Group,Industrials,11451417.92
+NHF,Nib Holdings Ltd,Financials,11277850.36
+CSC,Capstone Copper Corp Cdi,Materials,10770804.24
+NHC,New Hope Corporation Ltd,Energy,10645169.04
+BRG,Breville Group,Consumer Discretionary,10602660.64
+TPG,Tpg Telecom,Communication,10487874.94
+CNU,Chorus,Communication,10412784.90
+PNI,Pinnacle Investment Management Gro,Financials,9842837.55
+DBI,Dalrymple Bay Infrastructure Stapl,Industrials,9842993.52
+ZIP,Zip Co,Financials,9562972.32
+ILU,Iluka Resources,Materials,9156694.13
+NEU,Neuren Pharmaceuticals,Health Care,9127867.98
+RGN,Region Group Stapled Units Ltd,Real Estate,8991818.07
+SRG,Srg Ltd,Industrials,8864815.47
+YAL,Yancoal Australia Ltd,Energy,8627941.70
+AIA,Auckland International Airport,Industrials,8571031.95
+RSG,Resolute Mining,Materials,8540594.49
+EOS,Electro Optic Systems Holdings,Industrials,8352161.28
+AAI,Alcoa Corporation Cdi Corp,Materials,8332888.50
+BGL,Bellevue Gold,Materials,8029786.03
+HVN,Harvey Norman Holdings Ltd,Consumer Discretionary,7943486.64
+OBM,Ora Banda Mining Ltd,Materials,7856687.41
+SUL,Super Retail Group,Consumer Discretionary,7857187.80
+DTL,Data#3 Ltd,Information Technology,7823632.39
+NWL,Netwealth Group Ltd,Financials,7732330.76
+SRL,Sunrise Energy Metals,Materials,7685247.06
+ALK,Alkane Resources Ltd,Materials,7646982.12
+PRN,Perenti Ltd,Materials,7640720.64
+CLW,Charter Hall Long Wale Reit Staple,Real Estate,7629349.00
+BWP,Bwp Group Stapled Units Trust,Real Estate,7595661.65
+4DX,4Dmedical,Health Care,7577253.39
+HDN,Homeco Daily Needs Units,Real Estate,7348324.17
+TAH,Tabcorp Holdings,Consumer Discretionary,7115799.60
+LTR,Liontown Ltd,Materials,6939769.06
+INA,Ingenia Communities Group Stapled,Real Estate,6885166.30
+NIC,Nickel Industries,Materials,6706042.20
+MSB,Mesoblast,Health Care,6623836.91
+PPT,Perpetual,Financials,6609032.16
+IMD,Imdex Ltd,Materials,6411265.82
+LLC,Lendlease Group Stapled Units,Real Estate,6411462.54
+NWS,News Corporation Class B Voting Cd,Communication,6347985.80
+ALX,Atlas Arteria Stapled Units,Industrials,6318586.80
+CQR,Charter Hall Retail Units,Real Estate,6309098.48
+FLT,Flight Centre Travel Group Ltd,Consumer Discretionary,6087829.92
+BGA,Bega Cheese,Consumer Staples,6081999.84
+MI6,Minerals 260 Ltd,Materials,6081183.62
+ORA,Orora,Materials,6052120.62
+NXG,Nexgen Energy (Canada) Cdi,Energy,5947416.44
+DRR,Deterra Royalties,Materials,5873846.56
+MFG,Magellan Financial Group Ltd,Financials,5863246.00
+LOV,Lovisa Holdings,Consumer Discretionary,5804228.30
+DRO,Droneshield,Industrials,5645353.74
+DMP,Dominos Pizza Enterprises,Consumer Discretionary,5493197.92
+SIQ,Smartgroup Corporation Ltd,Industrials,5475285.75
+IFT,Infratil Ltd,Financials,5453568.36
+CIP,Centuria Industr Units,Real Estate,5347549.20
+CYL,Catalyst Metals Ltd,Materials,5256210.75
+HLI,Helia Group Ltd,Financials,5087897.70
+SSM,Service Stream,Industrials,5051446.88
+FBU,Fletcher Building,Industrials,4958522.16
+ELD,Elders,Consumer Staples,4925292.12
+ARB,Arb Corporation,Consumer Discretionary,4868062.08
+WPR,Waypoint Reit Stapled Unit Ltd,Real Estate,4863782.56
+BPT,Beach Energy,Energy,4818256.44
+CIA,Champion Iron Ltd,Materials,4687015.84
+SLC,Superloop,Communication,4548538.24
+KCN,Kingsgate Consolidated,Materials,4525140.54
+ASB,Austal Ltd,Industrials,4480705.50
+CNI,Centuria Capital Stapled Units,Real Estate,4461039.60
+FFM,Firefly Metals Ltd,Materials,4441088.40
+PMV,Premier Investments,Consumer Discretionary,4257727.04
+ABB,Aussie Broadband,Communication,4137888.60
+DVP,Develop Global,Materials,4105934.55
+NCK,Nick Scali,Consumer Discretionary,4098455.60
+DYL,Deep Yellow,Energy,4012963.89
+SLX,Silex Systems,Industrials,3855357.00
+KAR,Karoon Energy Ltd,Energy,3722671.25
+IRE,Iress Ltd,Information Technology,3699667.84
+JDO,Judo Capital Holdings Ltd,Financials,3678570.70
+ELS,Elsight Ltd,Information Technology,3492279.00
+ELV,Elevra Lithium Ltd,Materials,3406036.40
+ARF,Arena Reit Stapled Units,Real Estate,3349006.15
+PXA,Pexa Group Ltd,Real Estate,3206737.44
+GDG,Generation Development Group Ltd,Financials,3197861.00
+NEC,Nine Entertainment Co Holdings,Communication,3117372.67
+WBT,Weebit Nano Ltd,Information Technology,3053112.96
+IPX,Iperionx,Materials,2642516.25
+VUL,Vulcan Energy Resources,Materials,2354878.50

@@ -1,0 +1,31 @@
+# Companies you must not research or trade: entities you supervise at work.
+# One ASX code per line; text after # is ignored. Your employer's own restricted
+# list governs: add anything on it that is missing here (insurers, super funds,
+# other listed parents) and keep this file in step with it.
+#
+# Starting list, 8 October 2026: ASX-listed banks and bank parents.
+CBA   # Commonwealth Bank of Australia
+NAB   # National Australia Bank
+ANZ   # ANZ Group Holdings
+WBC   # Westpac Banking Corporation
+MQG   # Macquarie Group (parent of Macquarie Bank)
+BEN   # Bendigo and Adelaide Bank
+BOQ   # Bank of Queensland
+AMP   # AMP Limited (parent of AMP Bank)
+JDO   # Judo Capital Holdings
+MYS   # MyState
+BBC   # BNK Banking Corporation
+CCL   # Cuscal
+TYR   # Tyro Payments
+HGH   # Heartland Group Holdings
+
+# Added 8 October 2026 at your direction: listed insurers and parents of regulated insurers.
+QBE   # QBE Insurance Group
+IAG   # Insurance Australia Group
+SUN   # Suncorp Group
+MPL   # Medibank Private
+NHF   # nib holdings
+CGF   # Challenger (parent of Challenger Life)
+GDG   # Generation Development Group (parent of Generation Life)
+HLI   # Helia Group (lenders mortgage insurer)
+CVW   # ClearView Wealth (parent of ClearView Life)
