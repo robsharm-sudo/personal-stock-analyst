@@ -18,6 +18,8 @@ For a new idea, run them in that order. Stop at the first step that gives you a 
 
 A weekly routine emails you on Sunday evenings. It covers results and dividend dates in the week ahead, new ASX announcements, price levels crossed and theses due for review. See `routines/weekly-watch.md`.
 
+For a repository-backed ChatGPT/Codex pipeline, add the separate [ASX 200 performance step](routines/chatgpt-weekly-watch.md). It includes the four performance tables in the ChatGPT output, including quiet weeks, and explicitly labels any saved-report fallback. This does not change or activate the Claude routine.
+
 ## Safeguards
 
 - **Restricted list.** `restricted.txt` holds the companies you must not trade. The performance lists show them, marked (R), so you see every big mover in the index; nothing else touches them. A hook blocks any prompt that names one in capitals, every skill checks its ticker before starting, and no restricted company reaches a candidate shortlist. If the file goes missing, prompts are blocked until it is restored.
